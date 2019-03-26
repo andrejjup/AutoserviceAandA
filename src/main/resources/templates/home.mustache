@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="/style.css" rel="stylesheet">
+<head>
+    <title>home</title>
+
+<body>
+
+<script>
+function KeepCount() {
+    let NewCount = 0
+    if (document.service.wheel.checked) {
+        NewCount = NewCount + 1
+    }
+    if (document.service.oil.checked) {
+        NewCount = NewCount + 1
+    }
+    if (document.service.other.checked) {
+        NewCount = NewCount + 1
+    }
+    if (NewCount >1) {
+        alert('Pick One type')
+        document.service;
+        return false;
+    }
+}
+</script>
+
+<div class="container">
+    <div class="log">
+        <button class="in"><a class="login" href=/registration>Registration</a></button>
+    </div>
+    <div class="jumbotron">
+        <p class="error"><b>{{jumbo5}}</b></p>
+    </div>
+    <div class="jumbotron">
+        <p class="error"><b>{{jumbo6}}</b></p>
+    </div>
+    <div class="log">
+        <button class="in"><a class="login" href=/login>Login</a></button>
+    </div>
+    <div class="log">
+        <button class="in"><a class="login" href=/about>About us</a></button>
+    </div>
+
+    <h1><i><b>Welcome to Auto Service</b></h1> <h2> (only for registered users)</i></h2>
+
+    <div class="leftBottom">
+        <form action="/home" name = "service">
+            <div>
+                <h2><i>Please, enter your car model</i></h2>
+                <input class="in" type="text" name="model"><br>
+                <h2><i>Pick up the type of service</i></h2>
+
+                <div class="w3-container">
+                    <input type="checkbox" class="in" name="wheel" value="Wheel Replacement"
+                           onClick="return KeepCount()"> <b>Wheel Replacement</b>
+                </div>
+
+                <div class="w3-container">
+                    <input type="checkbox" class="in" name="oil" value="Change of Oil"
+                           onClick="return KeepCount()"> <b>Change of Oil</b>
+                </div>
+
+                <div class="w3-container">
+                    <input type="checkbox" class="in" name="other" value="Other"
+                           onClick="return KeepCount()"> <b>Other</b>
+                </div>
+                <div class="jumbotron">
+                    <p class="error"><b>{{jumbo1}}</b></p>
+                </div>
+
+                <div>
+                    <h2><i> Please, enter your desired date and time in format YYYY-MM-DD HH:00 </i></h2>
+                    <h2><i> Our working hours 10:00-18:00 </i></h2>
+                </div>
+
+                <input class="in" type="text" name="time"><br>
+                <div class="jumbotron">
+                    <p class="error"><b>{{jumbo2}}</b></p>
+                </div>
+                <div class="jumbotron">
+                    <p class="error"><b>{{jumbo3}}</b></p>
+                </div>
+                <div class="jumbotron">
+                    <p class="error"><b>{{jumbo4}}</b></p>
+                </div>
+
+                <iframe src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=WEEK&amp;height=400&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=photogallerybootcamp%40gmail.com&amp;color=%231B887A&amp;ctz=Europe%2FRiga" style="border:solid 1px #777" width="800" height="400" frameborder="0" scrolling="no"></iframe>
+                <div>
+                    <h2><i>Enter your e-mail: <input class="in" type="text" name="email"></i></h2><br>
+                </div>
+            </div>
+            <div>
+            <input class="in" type="submit" value="Submit">
+
+            </div>
+            </form>
+    </div>
+</div>
+</body>
+</html>
