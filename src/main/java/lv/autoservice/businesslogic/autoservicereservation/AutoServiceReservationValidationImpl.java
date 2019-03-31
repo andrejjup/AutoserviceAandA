@@ -20,15 +20,24 @@ public class AutoServiceReservationValidationImpl implements AutoServiceReservat
     public List<ValidationError> validate(AutoServiceReservationRequest request) {
         List<ValidationError> errors = new ArrayList<>();
 
-        validateService(request.getService()).ifPresent(errors::add);
+        validateModel(request.getModel()).ifPresent(errors::add);
+        validateWork(request.getWork()).ifPresent(errors::add);
         validateDateTime(request.getDateTime()).ifPresent(errors::add);
         validateEmail(request.getEmail()).ifPresent(errors::add);
         return errors;
     }
 
-    private Optional<ValidationError> validateService(String service) {
-        if (service == null || service.isEmpty()) {
-            return Optional.of(new ValidationError("service", "This field must be completed!"));
+    private Optional<ValidationError> validateModel(String model) {
+        if (model == null || model.isEmpty()) {
+            return Optional.of(new ValidationError("model", "This field must be completed!"));
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    private Optional<ValidationError> validateWork(String work) {
+        if (work == null || work.isEmpty()) {
+            return Optional.of(new ValidationError("work", "This field must be completed!"));
         } else {
             return Optional.empty();
         }
@@ -105,7 +114,6 @@ public class AutoServiceReservationValidationImpl implements AutoServiceReservat
                 return Optional.of(new ValidationError("email", "You are not registered!"));
             }
         }
-
         return Optional.empty();
     }
 }

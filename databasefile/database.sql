@@ -11,12 +11,24 @@ DROP TABLE IF EXISTS `user` ;
 CREATE TABLE IF NOT EXISTS `user` (
 `id` BIGINT NOT NULL AUTO_INCREMENT,
 `email` VARCHAR(100) NOT NULL,
-`telephoneNumber` VARCHAR(100) NOT NULL,
+`phone` VARCHAR(100) NOT NULL,
 `password` VARCHAR(100) NOT NULL,
 PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB
 AUTO_INCREMENT = 1002;
 
-INSERT INTO `autoservice`.`user` (`email`, `telephoneNumber`, `password`) VALUES ('photogallerybootcamp@gmail.com', '37122334455', '123456');
+DROP TABLE IF EXISTS `service` ;
+CREATE TABLE IF NOT EXISTS `service` (
+`id` BIGINT NOT NULL AUTO_INCREMENT,
+`model` VARCHAR(100) NOT NULL,
+`work` VARCHAR(100) NOT NULL,
+`datetime` VARCHAR(100) NOT NULL,
+`email` VARCHAR(100) NOT NULL,
+PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1002;
+
+INSERT INTO `autoservice`.`user` (`email`, `phone`, `password`) VALUES ('autoserviceAandA@gmail.com', '37122334455', '123456');
 

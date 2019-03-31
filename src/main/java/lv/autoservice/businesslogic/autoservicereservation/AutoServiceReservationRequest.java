@@ -1,22 +1,32 @@
 package lv.autoservice.businesslogic.autoservicereservation;
 
 public class AutoServiceReservationRequest {
-    private String service;
+    private String model;
+    private String work;
     private String dateTime;
     private String email;
 
-    public AutoServiceReservationRequest(String service, String dateTime, String email) {
-        this.service= service;
+    public AutoServiceReservationRequest(String model, String work, String dateTime, String email) {
+        this.model= model;
+        this.work= work;
         this.dateTime= dateTime.trim();
         this.email = email;
     }
 
-    public String getService() {
-        return service;
+    public String getModel() {
+        return model;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getWork() {
+        return work;
+    }
+
+    public void setWork(String work) {
+        this.work = work;
     }
 
     public String getDateTime() {

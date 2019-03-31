@@ -37,7 +37,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
         sb.append("Thank You for Registration!<br/>\n");
         sb.append("<br/>\n");
         sb.append("Best regards,<br/>\n");
-        sb.append("Your PhotoGallery Team<br/>\n");
+        sb.append("Your AutoServiceA&A Team<br/>\n");
         if (!SendEmail.SendMailMessage(sb, request.getEmail())) {
             validationErrors = new ArrayList<>();
             validationErrors.add(new ValidationError("email", "Email error!"));
@@ -46,8 +46,8 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 
         User user = createUser()
                 .withEmail(request.getEmail())
-                .withPassword(request.getPassword())
                 .withTelephoneNumber(request.getTelephoneNumber())
+                .withPassword(request.getPassword())
                 .build();
 
         userRepository.save(user);

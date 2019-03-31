@@ -26,7 +26,7 @@ public class CalendarEditor {
     private static final String APPLICATION_NAME = "AutoService";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
-    private static final String USER_ID = "photogallerybootcamp@gmail.com";
+    private static final String USER_ID = "autoserviceAandA@gmail.com";
 
     private static final List<String> SCOPES = Collections.singletonList(CalendarScopes.CALENDAR);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
@@ -71,7 +71,7 @@ public class CalendarEditor {
         }
         Event eventWrite = new Event().setSummary("This time is booked!");
 
-        DateTime startDateTime = new DateTime(userDateTime1 + ":00+02:00");
+        DateTime startDateTime = new DateTime(userDateTime1 + ":00+03:00");
         EventDateTime startWrite = new EventDateTime().setDateTime(startDateTime).setTimeZone("Europe/Riga");
         eventWrite.setStart(startWrite);
 
@@ -80,7 +80,7 @@ public class CalendarEditor {
         userDateTimeArray[12]++;
         String userDateTime2= String.valueOf(userDateTimeArray);
 
-        DateTime endDateTime = new DateTime(userDateTime2 + ":00+02:00");
+        DateTime endDateTime = new DateTime(userDateTime2 + ":00+03:00");
         EventDateTime end = new EventDateTime().setDateTime(endDateTime).setTimeZone("Europe/Riga");
         eventWrite.setEnd(end);
         service.events().insert(USER_ID, eventWrite).execute();

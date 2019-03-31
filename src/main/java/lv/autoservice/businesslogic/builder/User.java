@@ -3,22 +3,22 @@ package lv.autoservice.businesslogic.builder;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name = "user")
-public class User {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Entity
+    @Table(name = "user")
+    public class User {
+        @Id
+        @Column(name = "id")
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private Long id;
 
-    @Column(name = "email")
-    private String email;
+        @Column(name = "email")
+        private String email;
 
-    @Column(name = "telephoneNumber")
-    private String telephoneNumber;
+        @Column(name = "phone")
+        private String telephoneNumber;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+        @Column(name = "password", nullable = false)
+        private String password;
 
     public String getTelephoneNumber() {
         return telephoneNumber;

@@ -16,8 +16,8 @@ public class SendEmail {
     MimeMessage emailMessage;
 
     String emailHost = "smtp.gmail.com";
-    String fromUser = "photogallerybootcamp";
-    String fromUserEmailPassword = "Student007";
+    String fromUser = "autoserviceAandA";
+    String fromUserEmailPassword = "Training007";
 
     public static boolean SendMailMessage(StringBuilder sb, String toEmail){
 
@@ -41,7 +41,7 @@ public class SendEmail {
     }
 
     public void createEmailMessage(StringBuilder sb, String toEmail) throws AddressException, MessagingException {
-        String emailSubject = "PhotoGallery";
+        String emailSubject = "AutoServiceAandA";
 
         mailSession = Session.getDefaultInstance(emailProperties, null);
         emailMessage = new MimeMessage(mailSession);

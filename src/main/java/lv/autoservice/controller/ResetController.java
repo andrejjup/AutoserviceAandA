@@ -50,7 +50,7 @@ public class ResetController {
                 sb.append("<br/>\n");
                 sb.append("<br/>\n");
                 sb.append("Best regards,<br/>\n");
-                sb.append("Your PhotoGallery Team<br/>\n");
+                sb.append("Your AutoServiceA&A Team<br/>\n");
                     if (SendEmail.SendMailMessage(sb, email)) {
                         logger.info("New password was send on your email!");
 
@@ -64,6 +64,7 @@ public class ResetController {
                 modelAndView.addObject("jumbo4", "");
                 modelAndView.addObject("jumbo5", "");
                 modelAndView.addObject("jumbo6", "");
+                modelAndView.addObject("jumbo7", "");
             }
         }
         return modelAndView;

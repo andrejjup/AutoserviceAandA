@@ -18,10 +18,10 @@ public class UserRegistrationValidationImpl implements UserRegistrationValidator
     @Override
     public List<ValidationError> validate(UserRegistrationRequest request) {
         List<ValidationError> errors = new ArrayList<>();
-        validateDuplicateEmail(request.getEmail()).ifPresent(errors::add);
-        validatePassword(request.getPassword()).ifPresent(errors::add);
         validateEmail(request.getEmail()).ifPresent(errors::add);
+        validateDuplicateEmail(request.getEmail()).ifPresent(errors::add);
         validateTelephoneNumber(request.getTelephoneNumber()).ifPresent(errors::add);
+        validatePassword(request.getPassword()).ifPresent(errors::add);
         return errors;
     }
 
@@ -29,6 +29,14 @@ public class UserRegistrationValidationImpl implements UserRegistrationValidator
         if (password == null || password.isEmpty()) {
             return Optional.of(new ValidationError("password", "This field must be completed!"));
         } else {
+            return Optional.empty();
+        }
+    }
+
+    private Optional<ValidationError> validateTelephoneNumber(String telephoneNumber) {
+        if (telephoneNumber == null || telephoneNumber.isEmpty()) {
+            return Optional.of(new ValidationError("telephoneNumber", "This field must be completed!"));
+        }else{
             return Optional.empty();
         }
     }
@@ -48,14 +56,6 @@ public class UserRegistrationValidationImpl implements UserRegistrationValidator
             return Optional.of(new ValidationError("email", "This field must be completed!"));
         }else if (!email.contains("@")){
             return Optional.of(new ValidationError("email", "Must be an email"));
-        }else{
-            return Optional.empty();
-        }
-    }
-
-    private Optional<ValidationError> validateTelephoneNumber(String telephoneNumber) {
-        if (telephoneNumber == null || telephoneNumber.isEmpty()) {
-            return Optional.of(new ValidationError("telephoneNumber", "This field must be completed!"));
         }else{
             return Optional.empty();
         }

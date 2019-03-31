@@ -15,9 +15,9 @@ public class UserBuilder {
     public User build() {
         User user = new User();
         user.setId(id);
-        user.setPassword(password);
         user.setEmail(email);
         user.setTelephoneNumber(telephoneNumber);
+        user.setPassword(password);
         return user;
     }
 

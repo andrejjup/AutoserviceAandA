@@ -35,6 +35,7 @@ public class HomeController {
         modelAndView.addObject("jumbo4", "");
         modelAndView.addObject("jumbo5", "");
         modelAndView.addObject("jumbo6", "");
+        modelAndView.addObject("jumbo7", "");
         if ((email != null) && (!email.isEmpty())) {
             Optional<User> userOpt = userRepo.findByEmail(email);
             if (!userOpt.isPresent()) {
@@ -45,15 +46,15 @@ public class HomeController {
             else {
                 String work = null;
                 if (wheel != null) {
-                    work = wheel;
+                    work = "wheel";
                 } else {
                     if (oil != null) {
-                        work = oil;
+                        work = "oil";
                     } else {
-                        work = other;
+                        work = "other";
                     }
                 }
-                AutoServiceReservationRequest request = new AutoServiceReservationRequest(work, time, email);
+                AutoServiceReservationRequest request = new AutoServiceReservationRequest(model, work, time, email);
                 AutoServiceReservationResponse response = service.reserve(request);
 
                 if (response.isSuccess()) {
@@ -71,7 +72,9 @@ public class HomeController {
 
 
     public ModelAndView errMsg(ModelAndView modelAndView, List<ValidationError> list) {
-        if (list.get(0).getField().equals("service")) {
+        if (list.get(0).getField().equals("model")) {
+            modelAndView.addObject("jumbo7", "This field must be completed!");
+        }else if (list.get(0).getField().equals("work")) {
             modelAndView.addObject("jumbo1", "This field must be completed!");
         }
         else if (list.get(0).getField().equals("dateTime")) {

@@ -39,6 +39,7 @@ public class RegistrationController {
                     modelAndView.addObject("jumbo4", "");
                     modelAndView.addObject("jumbo5", "Thank You! Your registration is completed!");
                     modelAndView.addObject("jumbo6", "");
+                    modelAndView.addObject("jumbo7", "");
                     return modelAndView;
                 } else {
                     modelAndView = errorMsg(modelAndView, response.getErrors());
