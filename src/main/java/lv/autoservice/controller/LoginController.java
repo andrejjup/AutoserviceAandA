@@ -49,12 +49,22 @@ public class LoginController {
                     }
                     else {
                         modelAndView.setViewName("user");
-                        modelAndView.addObject("jumbo1", email);
-                        Optional<Service> serviceOpt = serviceRepo.findByEmail(email);
-                        modelAndView.addObject("jumbo2", serviceOpt.get().getModel());
-                        modelAndView.addObject("jumbo3", serviceOpt.get().getWork());
-                        modelAndView.addObject("jumbo4", serviceOpt.get().getDateTime());
-                        modelAndView.addObject("jumbo5", "");
+                        modelAndView.addObject("jumbo_title", "WELCOME, " + email + "!");
+                        Optional<Service> serviceOpt= serviceRepo.findByEmail(email);
+                            if (serviceOpt.isPresent()) {
+                                String userDateTime= serviceOpt.get().getDateTime();
+                                String userDate= userDateTime.substring(8,10)+"."+userDateTime.substring(5,7)+"."+userDateTime.substring(0,4);
+                                String userTime= userDateTime.substring(11,16);
+                                modelAndView.addObject("jumbo0", "_____________________________________________________________________________");
+                                modelAndView.addObject("jumbo1", "Model: " + serviceOpt.get().getModel());
+                                modelAndView.addObject("jumbo2", "Service: " + serviceOpt.get().getWork());
+                                modelAndView.addObject("jumbo3", "Date: " + userDate);
+                                modelAndView.addObject("jumbo4", "Time: " + userTime);
+                                modelAndView.addObject("jumbo5", "Status: ");
+                            }
+                            else {
+                                modelAndView.addObject("jumbo2", "You haven't any reservation!");
+                            }
                     }
                 return  modelAndView;
             } else {
