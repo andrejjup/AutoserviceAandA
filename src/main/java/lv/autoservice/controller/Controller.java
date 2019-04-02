@@ -8,10 +8,5 @@ public class Controller {
     public String about(){
         return "about";
     }
-
-    @RequestMapping("/admin")
-    public String admin() {
-        return "admin";
-    }
 }
 

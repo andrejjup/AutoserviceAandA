@@ -6,6 +6,7 @@ public class ServiceBuilder {
     private String work;
     private String dateTime;
     private String email;
+    private String status;
 
     private ServiceBuilder() {}
 
@@ -20,6 +21,7 @@ public class ServiceBuilder {
         service.setWork(work);
         service.setDateTime(dateTime);
         service.setEmail(email);
+        service.setStatus(status);
         return service;
     }
 
@@ -45,6 +47,11 @@ public class ServiceBuilder {
 
     public ServiceBuilder withEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public ServiceBuilder withStatus(String status) {
+        this.status = status;
         return this;
     }
 }

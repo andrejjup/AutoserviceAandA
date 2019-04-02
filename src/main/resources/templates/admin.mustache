@@ -5,35 +5,22 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <head>
-
     <title>adminDashboard</title>
     <link href="/style.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
-    <p>all folders</p>
-    <div>
-        <script>
-            let picker = document.getElementById('picker');
-            let listing = document.getElementById('listing');
-
-            picker.addEventListener('change', e => {
-                for (let file of Array.from(e.target.files)) {
-                    let item = document.createElement('li');
-                    item.textContent = file.webkitRelativePath;
-                    listing.appendChild(item);
-                };
-            });
-        </script>
-        <div>
-            <h2>Upload folder</h2>
-            <div class="picker"><input type="file" id="picker" name="fileList" webkitdirectory multiple></div>
-
-            <ul id="listing"></ul>
-            <input class="in" type="submit" value="Submit">
+    <div class="log">
+        <button class="in"><a class="HOME" href="/home">HOME</a></button>
+    </div>
+        <h1>Admin Page</h1>
+    <div class="details">
+        <div class="jumbotron">
+            <p>{{jumbo2}}</p>
+        </div>
     </div>
 </div>
-</div>
+
 </body>
 </html>

@@ -71,11 +71,13 @@ public class AutoServiceReservationServiceImpl implements AutoServiceReservation
             return new AutoServiceReservationResponse(validationErrors);
         }
 
+        String workStatus= "Not Started";
         Service service = createService()
                 .withModel(request.getModel())
                 .withWork(fullWorkName)
                 .withDateTime(request.getDateTime())
                 .withEmail(request.getEmail())
+                .withStatus(workStatus)
                 .build();
 
         serviceRepository.save(service);

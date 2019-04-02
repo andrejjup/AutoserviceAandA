@@ -1,7 +1,6 @@
 package lv.autoservice.businesslogic.builder;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "service")
@@ -22,6 +21,9 @@ public class Service {
 
     @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "status")
+    private String status;
 
     public Long getId() {
         return id;
@@ -63,21 +65,38 @@ public class Service {
         this.email = email;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Service service = (Service) o;
-        return Objects.equals(id, service.id) &&
-                Objects.equals(model, service.model) &&
-                Objects.equals(work, service.work) &&
-                Objects.equals(dateTime, service.dateTime) &&
-                Objects.equals(email, service.email);
+
+        if (!id.equals(service.id)) return false;
+        if (model != null ? !model.equals(service.model) : service.model != null) return false;
+        if (work != null ? !work.equals(service.work) : service.work != null) return false;
+        if (dateTime != null ? !dateTime.equals(service.dateTime) : service.dateTime != null) return false;
+        if (email != null ? !email.equals(service.email) : service.email != null) return false;
+        return status != null ? status.equals(service.status) : service.status == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, model, work, dateTime, email);
+        int result = id.hashCode();
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        result = 31 * result + (work != null ? work.hashCode() : 0);
+        result = 31 * result + (dateTime != null ? dateTime.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -86,8 +105,9 @@ public class Service {
                 "id=" + id +
                 ", model='" + model + '\'' +
                 ", work='" + work + '\'' +
-                ", time='" + dateTime + '\'' +
+                ", dateTime='" + dateTime + '\'' +
                 ", email='" + email + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

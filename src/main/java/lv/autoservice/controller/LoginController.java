@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +31,7 @@ public class LoginController {
     @RequestMapping(value = "/login")
     public ModelAndView login(String email, String password) {
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("jumbo0", "");
         modelAndView.addObject("jumbo1", "");
         modelAndView.addObject("jumbo2", "");
         modelAndView.addObject("jumbo3", "");
@@ -44,8 +48,13 @@ public class LoginController {
 
             if (userLoginResponse.isSuccess()) {
                 logger.info("Login success!");
-                    if (email== "autoserviceAandA@gmail.com") {
+                    if (email.equals("autoserviceAandA@gmail.com")) {
                         modelAndView.setViewName("admin");
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                        Date date = new Date();
+                        System.out.println(dateFormat.format(date));
+                        logger.info(dateFormat.format(date));
+                        modelAndView.addObject("jumbo2", dateFormat.format(date));
                     }
                     else {
                         modelAndView.setViewName("user");
@@ -60,7 +69,7 @@ public class LoginController {
                                 modelAndView.addObject("jumbo2", "Service: " + serviceOpt.get().getWork());
                                 modelAndView.addObject("jumbo3", "Date: " + userDate);
                                 modelAndView.addObject("jumbo4", "Time: " + userTime);
-                                modelAndView.addObject("jumbo5", "Status: ");
+                                modelAndView.addObject("jumbo5", "Status: " + serviceOpt.get().getStatus());
                             }
                             else {
                                 modelAndView.addObject("jumbo2", "You haven't any reservation!");
