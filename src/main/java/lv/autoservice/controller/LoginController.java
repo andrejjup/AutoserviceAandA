@@ -50,11 +50,10 @@ public class LoginController {
                 logger.info("Login success!");
                     if (email.equals("autoserviceAandA@gmail.com")) {
                         modelAndView.setViewName("admin");
-                        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
                         Date date = new Date();
-                        System.out.println(dateFormat.format(date));
                         logger.info(dateFormat.format(date));
-                        modelAndView.addObject("jumbo2", dateFormat.format(date));
+                        modelAndView.addObject("jumbo_time", dateFormat.format(date));
                     }
                     else {
                         modelAndView.setViewName("user");

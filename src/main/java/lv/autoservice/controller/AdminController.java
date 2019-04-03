@@ -24,7 +24,7 @@ public class AdminController {
     private Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping("/admin")
-    public ModelAndView admin() {
+    public ModelAndView admin(String function) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("admin");
         modelAndView.addObject("jumbo", "");
@@ -34,16 +34,19 @@ public class AdminController {
         modelAndView.addObject("jumbo5", "");
         modelAndView.addObject("jumbo6", "");
         modelAndView.addObject("jumbo7", "");
-
-        logger.info("Login success!");
-        logger.info("Login success!");
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date date = new Date();
-        System.out.println(dateFormat.format(date));
         logger.info(dateFormat.format(date));
-        modelAndView.addObject("jumbo2", dateFormat.format(date));
+        modelAndView.addObject("jumbo_time", dateFormat.format(date));
 
+        logger.info("Login success!");
+        logger.info(function);
+            if (function.equals("In Progress_10")){
+                logger.info("Progress!");
+            }
+            if (function.equals("Done_10")) {
+                logger.info("Admin success!");
+            }
         return modelAndView;
     }
 }
