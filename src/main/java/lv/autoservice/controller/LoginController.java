@@ -39,6 +39,7 @@ public class LoginController {
         modelAndView.addObject("jumbo5", "");
         modelAndView.addObject("jumbo6", "");
         modelAndView.addObject("jumbo7", "");
+        modelAndView.addObject("jumbo8", "");
         if ((password == null) && (email == null)) {
             modelAndView.addObject("jumbo", "");
         } else {
