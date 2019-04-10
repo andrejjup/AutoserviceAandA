@@ -1,6 +1,7 @@
 package lv.autoservice.controller;
 
 import lv.autoservice.businesslogic.autoservicereservation.AutoServiceReservationService;
+import lv.autoservice.businesslogic.database.ServiceRepository;
 import lv.autoservice.businesslogic.database.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,14 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Controller
 public class AdminController {
     @Autowired
     private UserRepository userRepo;
+    @Autowired
+    private ServiceRepository serviceRepo;
 
     @Autowired
     private AutoServiceReservationService service;
@@ -36,10 +35,7 @@ public class AdminController {
         modelAndView.addObject("jumbo6", "");
         modelAndView.addObject("jumbo7", "");
         modelAndView.addObject("jumbo8", "");
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        Date date = new Date();
-        logger.info(dateFormat.format(date));
-        modelAndView.addObject("jumbo_time", dateFormat.format(date));
+ //       LoginController.loadAdminPage(modelAndView);
 
         logger.info(function);
             if (function.equals("In Progress_10")){

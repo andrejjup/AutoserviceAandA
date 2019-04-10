@@ -9,6 +9,7 @@ import java.util.Optional;
 @Repository
 public interface ServiceRepository extends JpaRepository<Service, Integer> {
     Optional<Service> findByEmail(String email);
+    Optional<Service> findByDateTime(String dateTime);
 }
 
 
