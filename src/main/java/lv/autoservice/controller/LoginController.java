@@ -117,9 +117,13 @@ public class LoginController {
             modelAndView.addObject("jumbo12", "Service: " + serviceOpt.get().getWork());
             Optional<User> userOpt = userRepo.findByEmail(serviceOpt.get().getEmail());
             modelAndView.addObject("jumbo13", "Phone: " + userOpt.get().getTelephoneNumber());
+            modelAndView.addObject("jumbo14", "Status: " + serviceOpt.get().getStatus());
         }
         else {
             modelAndView.addObject("jumbo11", "FREE");
+            modelAndView.addObject("jumbo12", "");
+            modelAndView.addObject("jumbo13", "");
+            modelAndView.addObject("jumbo14", "");
         }
 
         dateTime = dateFormat.format(date) + " 11:00";
@@ -129,9 +133,13 @@ public class LoginController {
             modelAndView.addObject("jumbo22", "Service: " + serviceOpt.get().getWork());
             Optional<User> userOpt = userRepo.findByEmail(serviceOpt.get().getEmail());
             modelAndView.addObject("jumbo23", "Phone: " + userOpt.get().getTelephoneNumber());
+            modelAndView.addObject("jumbo24", "Status: " + serviceOpt.get().getStatus());
         }
         else {
             modelAndView.addObject("jumbo21", "FREE");
+            modelAndView.addObject("jumbo22", "");
+            modelAndView.addObject("jumbo23", "");
+            modelAndView.addObject("jumbo24", "");
         }
 
         dateTime = dateFormat.format(date) + " 12:00";
@@ -141,9 +149,13 @@ public class LoginController {
             modelAndView.addObject("jumbo32", "Service: " + serviceOpt.get().getWork());
             Optional<User> userOpt = userRepo.findByEmail(serviceOpt.get().getEmail());
             modelAndView.addObject("jumbo33", "Phone: " + userOpt.get().getTelephoneNumber());
+            modelAndView.addObject("jumbo34", "Status: " + serviceOpt.get().getStatus());
         }
         else {
             modelAndView.addObject("jumbo31", "FREE");
+            modelAndView.addObject("jumbo32", "");
+            modelAndView.addObject("jumbo33", "");
+            modelAndView.addObject("jumbo34", "");
         }
 
         dateTime = dateFormat.format(date) + " 13:00";
@@ -153,9 +165,13 @@ public class LoginController {
             modelAndView.addObject("jumbo42", "Service: " + serviceOpt.get().getWork());
             Optional<User> userOpt = userRepo.findByEmail(serviceOpt.get().getEmail());
             modelAndView.addObject("jumbo43", "Phone: " + userOpt.get().getTelephoneNumber());
+            modelAndView.addObject("jumbo44", "Status: " + serviceOpt.get().getStatus());
         }
         else {
             modelAndView.addObject("jumbo41", "FREE");
+            modelAndView.addObject("jumbo42", "");
+            modelAndView.addObject("jumbo43", "");
+            modelAndView.addObject("jumbo44", "");
         }
 
         dateTime = dateFormat.format(date) + " 14:00";
@@ -165,9 +181,13 @@ public class LoginController {
             modelAndView.addObject("jumbo52", "Service: " + serviceOpt.get().getWork());
             Optional<User> userOpt = userRepo.findByEmail(serviceOpt.get().getEmail());
             modelAndView.addObject("jumbo53", "Phone: " + userOpt.get().getTelephoneNumber());
+            modelAndView.addObject("jumbo54", "Status: " + serviceOpt.get().getStatus());
         }
         else {
             modelAndView.addObject("jumbo51", "FREE");
+            modelAndView.addObject("jumbo52", "");
+            modelAndView.addObject("jumbo53", "");
+            modelAndView.addObject("jumbo54", "");
         }
 
         dateTime = dateFormat.format(date) + " 15:00";
@@ -177,9 +197,13 @@ public class LoginController {
             modelAndView.addObject("jumbo62", "Service: " + serviceOpt.get().getWork());
             Optional<User> userOpt = userRepo.findByEmail(serviceOpt.get().getEmail());
             modelAndView.addObject("jumbo63", "Phone: " + userOpt.get().getTelephoneNumber());
+            modelAndView.addObject("jumbo64", "Status: " + serviceOpt.get().getStatus());
         }
         else {
             modelAndView.addObject("jumbo61", "FREE");
+            modelAndView.addObject("jumbo62", "");
+            modelAndView.addObject("jumbo63", "");
+            modelAndView.addObject("jumbo64", "");
         }
 
         dateTime = dateFormat.format(date) + " 16:00";
@@ -189,9 +213,13 @@ public class LoginController {
             modelAndView.addObject("jumbo72", "Service: " + serviceOpt.get().getWork());
             Optional<User> userOpt = userRepo.findByEmail(serviceOpt.get().getEmail());
             modelAndView.addObject("jumbo73", "Phone: " + userOpt.get().getTelephoneNumber());
+            modelAndView.addObject("jumbo74", "Status: " + serviceOpt.get().getStatus());
         }
         else {
             modelAndView.addObject("jumbo71", "FREE");
+            modelAndView.addObject("jumbo72", "");
+            modelAndView.addObject("jumbo73", "");
+            modelAndView.addObject("jumbo74", "");
         }
 
         dateTime = dateFormat.format(date) + " 17:00";
@@ -201,9 +229,13 @@ public class LoginController {
             modelAndView.addObject("jumbo82", "Service: " + serviceOpt.get().getWork());
             Optional<User> userOpt = userRepo.findByEmail(serviceOpt.get().getEmail());
             modelAndView.addObject("jumbo83", "Phone: " + userOpt.get().getTelephoneNumber());
+            modelAndView.addObject("jumbo84", "Status: " + serviceOpt.get().getStatus());
         }
         else {
             modelAndView.addObject("jumbo81", "FREE");
+            modelAndView.addObject("jumbo82", "");
+            modelAndView.addObject("jumbo83", "");
+            modelAndView.addObject("jumbo84", "");
         }
     }
 }
