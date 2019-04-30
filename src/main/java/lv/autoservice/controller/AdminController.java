@@ -161,7 +161,6 @@ public class AdminController {
     public void redrawAdminPage(ModelAndView modelAndView) {
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date date = new Date();
-        logger.info(dateFormat.format(date));
         modelAndView.addObject("jumbo_time", dateFormat.format(date));
 
         dateFormat = new SimpleDateFormat("yyyy-MM-dd");

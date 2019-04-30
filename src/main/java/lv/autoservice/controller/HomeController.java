@@ -47,12 +47,10 @@ public class HomeController {
                 String work = null;
                 if (wheel != null) {
                     work = "wheel";
-                } else {
-                    if (oil != null) {
+                } else if (oil != null) {
                         work = "oil";
-                    } else {
+                } else if (other != null) {
                         work = "other";
-                    }
                 }
                 AutoServiceReservationRequest request = new AutoServiceReservationRequest(model, work, time, email);
                 AutoServiceReservationResponse response = service.reserve(request);
