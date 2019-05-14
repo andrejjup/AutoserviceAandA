@@ -45,6 +45,27 @@ public class LoginController {
         modelAndView.addObject("jumbo6", "");
         modelAndView.addObject("jumbo7", "");
         modelAndView.addObject("jumbo8", "");
+        modelAndView.addObject("jumbo9", "");
+        modelAndView.addObject("jumbo10", "");
+        modelAndView.addObject("jumbo11", "");
+        modelAndView.addObject("jumbo12", "");
+        modelAndView.addObject("jumbo13", "");
+        modelAndView.addObject("jumbo14", "");
+        modelAndView.addObject("jumbo15", "");
+        modelAndView.addObject("jumbo16", "");
+        modelAndView.addObject("jumbo17", "");
+        modelAndView.addObject("jumbo18", "");
+        modelAndView.addObject("jumbo19", "");
+        modelAndView.addObject("jumbo20", "");
+        modelAndView.addObject("jumbo21", "");
+        modelAndView.addObject("jumbo22", "");
+        modelAndView.addObject("jumbo23", "");
+        modelAndView.addObject("jumbo24", "");
+        modelAndView.addObject("jumbo25", "");
+        modelAndView.addObject("jumbo26", "");
+        modelAndView.addObject("jumbo27", "");
+        modelAndView.addObject("jumbo28", "");
+        modelAndView.addObject("jumbo29", "");
         if ((password == null) && (email == null)) {
             modelAndView.addObject("jumbo", "");
         } else {
@@ -61,17 +82,22 @@ public class LoginController {
                     else {
                         modelAndView.setViewName("user");
                         modelAndView.addObject("jumbo_title", "WELCOME, " + email + "!");
-                        Optional<Service> serviceOpt= serviceRepo.findByEmail(email);
-                            if (serviceOpt.isPresent()) {
-                                String userDateTime= serviceOpt.get().getDateTime();
-                                String userDate= userDateTime.substring(8,10)+"."+userDateTime.substring(5,7)+"."+userDateTime.substring(0,4);
-                                String userTime= userDateTime.substring(11,16);
-                                modelAndView.addObject("jumbo0", "_____________________________________________________________________________");
-                                modelAndView.addObject("jumbo1", "Model: " + serviceOpt.get().getModel());
-                                modelAndView.addObject("jumbo2", "Service: " + serviceOpt.get().getWork());
-                                modelAndView.addObject("jumbo3", "Date: " + userDate);
-                                modelAndView.addObject("jumbo4", "Time: " + userTime);
-                                modelAndView.addObject("jumbo5", "Status: " + serviceOpt.get().getStatus());
+                            List<Service> serviceList = serviceRepo.findAllByEmail(email);
+                            if (!serviceList.isEmpty()) {
+                                for (int i= 0; i < serviceList.size(); i++) {
+                                    String userDateTime = serviceList.get(i).getDateTime();
+                                    String userDate = userDateTime.substring(8, 10) + "." + userDateTime.substring(5, 7) + "." + userDateTime.substring(0, 4);
+                                    String userTime = userDateTime.substring(11, 16);
+                                    modelAndView.addObject("jumbo" + (i*6), "_____________________________________________________________________________");
+                                    modelAndView.addObject("jumbo" + (i*6+1), "Model: " + serviceList.get(i).getModel());
+                                    modelAndView.addObject("jumbo" + (i*6+2), "Service: " + serviceList.get(i).getWork());
+                                    modelAndView.addObject("jumbo" + (i*6+3), "Date: " + userDate);
+                                    modelAndView.addObject("jumbo" + (i*6+4), "Time: " + userTime);
+                                    modelAndView.addObject("jumbo" + (i*6+5), "Status: " + serviceList.get(i).getStatus());
+                                    if (i== 4) {
+                                        break;
+                                    }
+                                }
                             }
                             else {
                                 modelAndView.addObject("jumbo2", "You haven't any reservation!");
